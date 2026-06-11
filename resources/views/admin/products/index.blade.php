@@ -7,7 +7,7 @@
 
 <body class="bg-gray-100">
 
-<!-- TOP BAR -->
+
 <div class="bg-black text-white p-4 flex justify-between items-center">
     <h1 class="text-xl font-bold">🛠 Ürün Yönetimi</h1>
 
@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<!-- CONTENT -->
+
 <div class="p-6">
 
     <div class="bg-white shadow rounded overflow-hidden">
