@@ -49,24 +49,34 @@
 
 <div class="p-6">
 
-<form method="GET" action="/shop" class="mb-4">
+    <form method="GET" action="/shop" class="bg-white p-4 rounded-xl shadow border">
 
-    <select name="category" class="border p-2">
-        <option value="">Tüm Kategoriler</option>       <!-- category filter updated -->
+        <div class="text-gray-700 font-semibold mb-3">
+            🗂️ Kategoriler
+        </div>
 
-        @foreach(\App\Models\Category::all() as $cat)
-            <option value="{{ $cat->id }}">
-                {{ $cat->name }}
-            </option>
-        @endforeach
+        <div class="flex flex-wrap gap-2">
 
-    </select>
+            
+            <a href="/shop"
+               class="px-3 py-1 rounded-full border hover:bg-black hover:text-white transition">
+                Tümü
+            </a>
 
-    <button class="bg-blue-500 text-white px-3 py-1 rounded">
-        Filtrele
-    </button>
+            @foreach(\App\Models\Category::all() as $cat)
 
-</form>
+                <a href="/shop?category={{ $cat->id }}"
+                   class="px-3 py-1 rounded-full border hover:bg-blue-600 hover:text-white transition">
+                    {{ $cat->name }}
+                </a>
+
+            @endforeach
+
+        </div>
+
+    </form>
+
+</div>
 
     <h2 class="text-2xl font-bold mb-6">Ürünler</h2>
 
