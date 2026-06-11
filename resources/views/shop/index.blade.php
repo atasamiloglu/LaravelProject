@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Technowest Shop</title>
+    <title>Technowest</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -10,7 +10,7 @@
 
 <div class="bg-black text-white p-4 flex justify-between items-center">
 
-    <h1 class="text-xl font-bold">🛍 Technowest Shop</h1>
+    <h1 class="text-xl font-bold">🛍 Technowest </h1>
 
     
     <form method="GET" action="/shop" class="flex gap-2 ml-48">
