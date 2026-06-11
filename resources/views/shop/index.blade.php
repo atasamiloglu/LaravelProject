@@ -13,7 +13,7 @@
     <h1 class="text-xl font-bold">🛍 Technowest </h1>
 
     
-    <form method="GET" action="/shop" class="flex gap-2 ml-auto mr-10">
+    <form method="GET" action="/shop" class="flex gap-2 ml-auto mr-8">
     <input type="text" name="search" placeholder="Ürün ara..." class="px-2 py-1 text-black rounded">
     <button class="bg-blue-500 px-3 py-1 rounded">Ara</button>
 </form>
@@ -21,7 +21,7 @@
     
     <div class="flex gap-4 items-center">
 
-        <a href="/shop">Alışveriş Sayfası</a>
+        <a href="/shop">🛍️ Alışveriş Sayfası</a>
         <a href="/cart">🛒 Sepetime Git</a>
 
         @guest
