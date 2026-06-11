@@ -4,66 +4,92 @@
     <title>Checkout</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
 
-<div class="max-w-2xl mx-auto mt-10 bg-white p-6 rounded shadow">
+<body class="bg-gray-50">
 
-    <h1 class="text-3xl font-bold mb-6">
-        💳 Ödeme Ekranı
+<div class="max-w-6xl mx-auto p-6">
+
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">
+        🧾 Checkout
     </h1>
 
-    <form method="POST" action="/checkout">
-        @csrf
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        <input
-            type="text"
-            placeholder="Ad Soyad"
-            class="w-full border p-3 rounded mb-3"
-        >
+        
+        <div class="lg:col-span-2 space-y-4">
 
-        <input
-            type="text"
-            placeholder="Adres"
-            class="w-full border p-3 rounded mb-3"
-        >
+            @foreach($cart as $id => $item)
 
-       <input
-            type="text"
-            name="card_number"
-            id="card_number"
-            maxlength="19"
-            placeholder="1234 5678 9012 3456"
-            class="w-full border p-3 rounded mb-3"
-        />
+                <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center">
 
-        <button
-            class="w-full bg-green-500 text-white p-3 rounded">
-            Siparişi Tamamla
-        </button>
+                    <div>
+                        <h2 class="font-semibold text-gray-800">
+                            {{ $item['name'] }}
+                        </h2>
 
-    </form>
+                        <p class="text-sm text-gray-500">
+                            {{ $item['quantity'] }} adet x {{ $item['price'] }} ₺
+                        </p>
+                    </div>
+
+                    <div class="font-bold text-gray-800">
+                        {{ $item['quantity'] * $item['price'] }} ₺
+                    </div>
+
+                </div>
+
+            @endforeach
+
+        </div>
+
+        
+        <div class="bg-white p-6 rounded-xl shadow h-fit">
+
+            <h2 class="text-xl font-bold text-gray-800 mb-4">
+                Sipariş Özeti
+            </h2>
+
+            @php
+                $total = 0;
+                foreach($cart as $item){
+                    $total += $item['price'] * $item['quantity'];
+                }
+            @endphp
+
+            <div class="space-y-2 text-gray-700">
+
+                <div class="flex justify-between">
+                    <span>Ara Toplam</span>
+                    <span>{{ $total }} ₺</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Kargo</span>
+                    <span class="text-green-600">Ücretsiz</span>
+                </div>
+
+                <div class="border-t pt-2 mt-2 flex justify-between font-bold text-lg">
+                    <span>Toplam</span>
+                    <span>{{ $total }} ₺</span>
+                </div>
+
+            </div>
+
+            
+            <form method="POST" action="{{ route('checkout.store') }}" class="mt-6">
+                @csrf
+
+                <button class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition">
+                    Siparişi Tamamla
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
 
 </div>
-
-<script>
-const cardInput = document.getElementById('card_number');
-
-cardInput.addEventListener('input', function (e) {
-
-    let value = e.target.value;
-
-    // just numbers
-    value = value.replace(/\D/g, '');
-
-    // split every 4 digits
-    value = value.replace(/(.{4})/g, '$1 ');
-
-    // delete trailing space
-    value = value.trim();
-
-    e.target.value = value;
-});
-</script>
 
 </body>
 </html>
