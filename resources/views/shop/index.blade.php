@@ -52,7 +52,7 @@
 <form method="GET" action="/shop" class="mb-4">
 
     <select name="category" class="border p-2">
-        <option value="">Tüm Kategoriler</option>
+        <option value="">Tüm Kategoriler</option>       <!-- category filter updated -->
 
         @foreach(\App\Models\Category::all() as $cat)
             <option value="{{ $cat->id }}">
