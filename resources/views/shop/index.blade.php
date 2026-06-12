@@ -7,19 +7,25 @@
 
 <body class="bg-gray-100">
 
+<div class="max-w-7xl mx-auto px-4">
 
-<div class="bg-black text-white p-4 flex justify-between items-center">
+
+<div class="bg-black text-white p-4 flex flex-col md:flex-row justify-between items-center gap-4">
 
     <h1 class="text-xl font-bold">🛍 Technowest </h1>
 
     
-    <form method="GET" action="/shop" class="flex gap-2 ml-auto mr-8">
-    <input type="text" name="search" placeholder="Ürün ara..." class="px-2 py-1 text-black rounded">
+    <form method="GET" action="/shop"
+        class="flex flex-col md:flex-row gap-2 w-full md:w-auto">
+    <input type="text" name="search"
+        placeholder="Ürün ara..."
+        class="px-2 py-1 text-black rounded w-full md:w-64">
+
     <button class="bg-blue-500 px-3 py-1 rounded">Ara</button>
 </form>
 
     
-    <div class="flex gap-4 items-center">
+    <div class="flex flex-wrap gap-4 items-center justify-center">
 
         <a href="/shop">🛍️ Alışveriş Sayfası</a>
         <a href="/cart">🛒 Sepetime Git</a>
@@ -80,14 +86,14 @@
 
     <h2 class="text-2xl font-bold mb-6">Ürünler</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
         @foreach($products as $product)
 
-        <div class="bg-white p-4 rounded shadow">
+        <div class="bg-white p-4 rounded shadow overflow-hidden">
 
             <img src="{{ $product->image }}"
-                 class="h-40 w-full object-cover rounded mb-3">
+                class="w-full h-48 object-cover rounded mb-3">
 
             <h3 class="text-lg font-bold">{{ $product->name }}</h3>
 
@@ -131,5 +137,6 @@ function addToCart(id) {
 }
 </script>
 
+</div>
 </body>
 </html>
