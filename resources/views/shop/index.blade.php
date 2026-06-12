@@ -84,13 +84,14 @@
 
 </div>
 
-    <h2 class="text-2xl font-bold mb-6">Ürünler</h2>
-
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-2">
+          🛍️ Ürünler
+        </h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
         @foreach($products as $product)
 
-        <div class="bg-white p-4 rounded shadow overflow-hidden">
+        <div class="bg-white p-4 rounded shadow flex flex-col h-full">
 
             <img src="{{ $product->image }}"
                 class="w-full h-48 object-cover rounded mb-3">
@@ -101,10 +102,12 @@
 
             <p class="text-sm text-gray-400">Stok: {{ $product->stock }}</p>
 
-            <button onclick="addToCart({{ $product->id }})"
-        class="bg-blue-500 text-white px-3 py-1 rounded">
-    Sepete Ekle
-</button>
+           <div class="mt-auto">
+                 <button onclick="addToCart({{ $product->id }})"
+                 class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold transition">
+                      🛒 Sepete Ekle
+                    </button>
+                </div>
 
         </div>
 
