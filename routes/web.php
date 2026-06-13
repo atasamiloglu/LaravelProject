@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -169,6 +170,66 @@ Route::middleware('auth')->group(function () {
    
 
     Route::prefix('admin')->group(function () {
+
+    Route::get('/categories', function () {
+
+    if (auth()->user()->role !== 'admin') {
+        abort(403);
+    }
+
+    return app(CategoryController::class)->index();
+
+        });
+
+        Route::get('/categories/create', function () {
+
+    if (auth()->user()->role !== 'admin') {
+        abort(403);
+    }
+
+    return app(CategoryController::class)->create();
+
+        });
+
+        Route::post('/categories', function (Request $request) {
+
+    if (auth()->user()->role !== 'admin') {
+        abort(403);
+    }
+
+    return app(CategoryController::class)->store($request);
+
+        });
+
+        Route::get('/categories/{id}/edit', function ($id) {
+
+    if (auth()->user()->role !== 'admin') {
+        abort(403);
+    }
+
+    return app(CategoryController::class)->edit($id);
+
+        });
+
+        Route::put('/categories/{id}', function (Request $request, $id) {
+
+    if (auth()->user()->role !== 'admin') {
+        abort(403);
+    }
+
+    return app(CategoryController::class)->update($request, $id);
+
+        });
+
+        Route::delete('/categories/{id}', function ($id) {
+
+    if (auth()->user()->role !== 'admin') {
+        abort(403);
+    }
+
+    return app(CategoryController::class)->destroy($id);
+
+        }); 
 
         Route::get('/dashboard', function () {
 

@@ -7,7 +7,7 @@
 
 <body class="bg-gray-100">
 
-<!-- TOP BAR -->
+
 <div class="bg-black text-white p-4 flex justify-between items-center">
     <h1 class="text-xl font-bold">🛠 Admin Panel</h1>
 
@@ -16,7 +16,7 @@
     </a>
 </div>
 
-<!-- FORM CONTAINER -->
+
 <div class="flex justify-center items-center mt-10">
 
     <div class="bg-white p-8 rounded shadow w-full max-w-lg">
