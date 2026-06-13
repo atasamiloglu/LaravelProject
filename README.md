@@ -63,6 +63,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 To test the admin panel:
 
 - Email: admin@email.com  
-- Password: 123456
+- Password: test1234
 
 ⚠️ This account is for demonstration purposes only.
